@@ -23,6 +23,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         #cache: 'npm'
+    - name: Install OS dependencies
+      run: sudo apt-get install -y build-essential libpango1.0-dev libpng-dev --no-install-recommends
     - run: npm i
     - run: npm run build --if-present
     - run: npm test
